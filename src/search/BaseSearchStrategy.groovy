@@ -12,7 +12,7 @@ abstract class BaseSearchStrategy implements SearchStrategy {
     }
 
     SearchResult getCheapestRestaurantResult() {
-//        TODO: test this is in asc order
+
         hits.sort { it.price}
         if (hits.size() > 0){
            return hits.get(0)
