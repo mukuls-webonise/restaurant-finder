@@ -33,7 +33,7 @@ class RestaurantFinderTest extends GroovyTestCase {
     }
 
     void testComboAvailable() {
-        List<Item> searchItems = new ArrayList<>()
+        Set<Item> searchItems = new HashSet<>()
         searchItems.add(new Item("extra_salsa"))
         searchItems.add(new Item(("extreme_fajita")))
         searchItems.add(new Item(("jalapeno_poppers")))
@@ -42,21 +42,25 @@ class RestaurantFinderTest extends GroovyTestCase {
     }
 
     void testDistributedAvailable() {
-        List<Item> searchItems = new ArrayList<>()
-        searchItems.add(new Item("fancy_european_water"))
-        searchItems.add(new Item(("extreme_fajita")))
+        Set<Item> searchItems = new HashSet<>()
+//        searchItems.add(new Item("fancy_european_water"))
+//        searchItems.add(new Item(("extreme_fajita")))
+        searchItems.add(new Item("a"))
+        searchItems.add(new Item(("b")))
+        searchItems.add(new Item("c"))
+
         executeSearch(new Order(searchItems))
     }
 
     void testSomePresentButNotAll() {
-        List<Item> searchItems = new ArrayList<>()
+        Set<Item> searchItems = new HashSet<>()
         searchItems.add(new Item("lassi"))
         searchItems.add(new Item(("extreme_fajita")))
         executeSearch(new Order(searchItems))
     }
 
     void testNotAvailable() {
-        List<Item> searchItems = new ArrayList<>()
+        Set<Item> searchItems = new HashSet<>()
         searchItems.add(new Item("dal_makhani"))
         executeSearch(new Order(searchItems))
     }
