@@ -16,16 +16,6 @@ class SingleSearchStrategy extends BaseSearchStrategy {
         print "Searching for : ${search.name}\n"
         for (rest in restaurants) {
             for (meal in rest.meals) {
-//                for (item in meal.items) {
-//                    print "Matching with : ${item.name}\n"
-//                    if (item.name.equalsIgnoreCase(search.name)) {
-//                        print "Name matched\n"
-//                        SearchResult result = new SearchResult(meal.price, rest.id)
-//                        addSearchResult(result)
-//                    } else {
-//                        print "diff items\n"
-//                    }
-//                }
                 if(meal.items.contains(search)) {
                     addSearchResult(new SearchResult(meal.price, rest.id))
                 }
