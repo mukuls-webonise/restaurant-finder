@@ -12,7 +12,7 @@ class SingleSearchStrategy extends BaseSearchStrategy {
 
     @Override
     SearchResult searchRestaurantsForOrder(List<Restaurant> restaurants, Order order) {
-        Item search = order.items.get(0)
+        Item search = order.items.asList().get(0)
         print "Searching for : ${search.name}\n"
         for (rest in restaurants) {
             for (meal in rest.meals) {

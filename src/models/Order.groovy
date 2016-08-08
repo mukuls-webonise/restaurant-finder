@@ -6,15 +6,15 @@ import com.sun.javaws.exceptions.InvalidArgumentException
  * Created by mukuls-webonise on 5/8/16.
  */
 class Order {
-    List<Item> items
+    Set<Item> items
 
-    Order(List<Item> items) {
+    Order(Set<Item> items) {
         this.items = items
         checkOrderSize()
     }
 
     Order(Item item) {
-        this.items = new ArrayList<>()
+        this.items = new HashSet<>()
         items.add(item)
         checkOrderSize()
     }
